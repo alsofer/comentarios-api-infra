@@ -1,7 +1,9 @@
 terraform {
-  backend "s3" {
-    bucket = "comentarios-api-infra"
-    key    = "terraform"
-    region = "us-east-2"
+  backend "remote" {
+    organization = "alsofer"
+
+    workspaces {
+      name = "comentarios-api-infra"
+    }
   }
 }
