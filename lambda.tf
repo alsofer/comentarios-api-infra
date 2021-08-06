@@ -22,6 +22,7 @@ resource "aws_lambda_function" "main" {
   function_name       = "comentarios-api"
   role                = aws_iam_role.iam_for_lambda.arn
   handler             = "main.handler"
+  filename            = "api"
 
 
   runtime = "python3.8"
