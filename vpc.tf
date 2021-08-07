@@ -14,7 +14,7 @@ resource "aws_subnet" "az-b" {
   availability_zone = "us-east-2b"
 }
 
-resource "aws_subnet" "az-b" {
+resource "aws_subnet" "az-c" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "100.100.30.0/24"
   availability_zone = "us-east-2c"
