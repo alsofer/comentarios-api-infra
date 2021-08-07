@@ -5,5 +5,5 @@ variable "s3_bucket_name" {
 
 variable "db_name" {
     type            = string
-    default         = "comentarios-api-mysql"
+    default         = "comentariosmysql"
 }
