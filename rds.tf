@@ -21,6 +21,9 @@ resource "aws_db_security_group" "default" {
 
   ingress {
     cidr                 = "100.100.1.0/24"
+  }
+
+  ingress {
     cidr                 = "100.100.2.0/24"
   }
 }
