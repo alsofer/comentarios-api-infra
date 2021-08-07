@@ -7,7 +7,7 @@ module "rds" {
   size                            = "db.t2.micro"
   security_groups                 = ["sg-06bc08ad8347ff154"]
   enabled_cloudwatch_logs_exports = ["audit", "error", "slowquery"]
-  security_groups_count           = 2
+  security_groups_count           = 1
   rds_password                    = local.db_creds.password
   rds_username                    = local.db_creds.username
   engine                          = "mysql"
