@@ -24,6 +24,7 @@ module "db" {
   monitoring_interval = "30"
   monitoring_role_name = "MyRDSMonitoringRole"
   create_monitoring_role = true
+  publicly_accessible    = true
 
 
   # DB subnet group
