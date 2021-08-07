@@ -19,3 +19,7 @@ resource "aws_security_group" "main" {
   description = "Default SG"
   vpc_id      = aws_vpc.main.id
 }
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.main.id
+}
