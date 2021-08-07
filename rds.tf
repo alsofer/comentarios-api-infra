@@ -14,7 +14,7 @@ module "db" {
   password = local.db_creds.password
   port     = "3306"
 
-  iam_database_authentication_enabled = true
+  iam_database_authentication_enabled = false
 
   vpc_security_group_ids = [data.aws_security_group.main.id]
 
