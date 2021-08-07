@@ -22,7 +22,8 @@ resource "aws_lambda_function" "main" {
   function_name       = "comentarios-api"
   role                = aws_iam_role.iam_for_lambda.arn
   handler             = "main.handler"
-  filename            = "api"
+  s3_bucket           = "comentarios-api"
+  s3_key              = "api.zip"
 
 
   runtime = "python3.8"
@@ -33,3 +34,8 @@ resource "aws_lambda_function" "main" {
     }
   }
 }
+
+vpc_config {
+    subnet_ids         = [aws_subnet.az-a.id]
+    security_group_ids = [aws_security_group.lambda.id]
+  }
