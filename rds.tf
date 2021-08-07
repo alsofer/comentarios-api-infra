@@ -4,7 +4,7 @@ resource "aws_db_instance" "default" {
   engine_version         = "5.7"
   instance_class         = "db.t2.micro"
   name                   = "comentarios-mysql"
-  identifier             = "comentarios-mysql"
+  identifier             = "comentariosmysql"
   username               = local.db_creds.username
   password               = local.db_creds.password
   parameter_group_name   = "default.mysql5.7"
