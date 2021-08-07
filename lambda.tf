@@ -24,18 +24,10 @@ resource "aws_lambda_function" "main" {
   handler             = "main.handler"
   s3_bucket           = "comentarios-api"
   s3_key              = "api.zip"
+  runtime             = "python3.8"
 
-
-  runtime = "python3.8"
-
-  environment {
-    variables = {
-      Team = "alsofer"
-    }
-  }
-}
-
-vpc_config {
+  vpc_config {
     subnet_ids         = [aws_subnet.az-a.id]
     security_group_ids = [aws_security_group.lambda.id]
   }
+}
