@@ -4,7 +4,7 @@ module "rds" {
   subnets                         = [aws_subnet.az-a.id, aws_subnet.az-b.id]
   project                         = "comentarios-api"
   environment                     = "production"
-  size                            = "db.t2.micro"
+  size                            = "db.t2.small"
   security_groups                 = ["sg-06bc08ad8347ff154"]
   enabled_cloudwatch_logs_exports = ["audit", "error", "slowquery"]
   security_groups_count           = 1
@@ -12,6 +12,7 @@ module "rds" {
   rds_username                    = local.db_creds.username
   engine                          = "mysql"
   engine_version                  = "5.7.19"
+  storage_encrypted               = false
 
 
   multi_az                        = "false"
