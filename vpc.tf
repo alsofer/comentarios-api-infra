@@ -20,6 +20,17 @@ resource "aws_security_group" "main" {
   name        = "vpc_security_group"
   description = "Default SG"
   vpc_id      = aws_vpc.main.id
+
+  ingress = [
+    {
+      description      = "Allow developer"
+      from_port        = 3306
+      to_port          = 3306
+      protocol         = "tcp"
+      cidr_blocks      = ['179.228.52.229/32']
+    }
+  ]
+  
 }
 
 resource "aws_internet_gateway" "gw" {
