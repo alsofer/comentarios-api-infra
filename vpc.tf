@@ -27,7 +27,7 @@ resource "aws_security_group" "main" {
       from_port        = 3306
       to_port          = 3306
       protocol         = "tcp"
-      cidr_blocks      = ['179.228.52.229/32']
+      cidr_blocks      = ["179.228.52.229/32"]
     }
   ]
   
