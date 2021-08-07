@@ -5,7 +5,7 @@ module "rds" {
   project                         = "comentarios-api"
   environment                     = "production"
   size                            = "db.t2.micro"
-  security_groups                 = [data.aws_security_group.main.id]
+  security_groups                 = ["sg-06bc08ad8347ff154"]
   enabled_cloudwatch_logs_exports = ["audit", "error", "slowquery"]
   security_groups_count           = 2
   rds_password                    = local.db_creds.password
