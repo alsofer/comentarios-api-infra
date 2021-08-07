@@ -10,7 +10,7 @@ resource "aws_db_instance" "default" {
   skip_final_snapshot    = true
 }
 
-resource "aws_db_subnet_group" "default" {
+resource "aws_db_subnet_group" "main" {
   name                   = "main"
   subnet_ids             = [aws_subnet.az-a.id, aws_subnet.az-b.id]
 }
