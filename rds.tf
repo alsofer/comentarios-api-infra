@@ -12,7 +12,6 @@ module "rds" {
   rds_username                    = local.db_creds.username
   engine                          = "mysql"
   engine_version                  = "5.7.19"
-  allowed_cidr_blocks             = ["179.228.52.229/32"]
 
 
   multi_az                        = "false"
