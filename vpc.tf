@@ -41,13 +41,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 }
 
-resource "aws_route_table" "main" {
-  vpc_id = aws_vpc.main.id
-
-  route = [
-    {
-      cidr_block = "0.0.0.0/0"
-      gateway_id = "igw-09572d2a3006b75cb"
-    }
-  ]
-}
+resource "aws_route" "route-table-internet" {
+  route_table_id              = data.aws_route_table.id
+  destination_cidr_block      = "0.0.0.0/0"
+  gateway_id                  = "igw-09572d2a3006b75cb"
