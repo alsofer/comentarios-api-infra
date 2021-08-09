@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "comentarios-api-infra"
+    bucket = "comentarios-api-terraform"
     key    = "terraform/terraform.tfstate"
     region = "us-east-2"
   }

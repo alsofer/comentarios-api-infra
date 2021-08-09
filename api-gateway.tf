@@ -1,5 +1,6 @@
 resource "aws_api_gateway_rest_api" "main" {
   body = jsonencode({
+
 openapi: 3.0.2
 info:
   title: Comentários API

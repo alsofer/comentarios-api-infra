@@ -1,4 +1,4 @@
 variable "s3_bucket_name" {
     type            = string
-    default         = "comentarios-api"
+    default         = "s3-comentarios-api"
 }
