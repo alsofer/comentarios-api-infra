@@ -6,10 +6,26 @@ resource "aws_lambda_function" "main" {
   s3_key              = "api.zip"
   runtime             = "python3.8"
 
+  environment {
+    variables = {
+      DbConnectionString = local.db_string.string
+    }
+  }
+
   vpc_config {
     subnet_ids         = [aws_subnet.az-a.id, aws_subnet.az-b.id]
     security_group_ids = [aws_security_group.lambda-sg.id]
   }
+}
+
+data "aws_secretsmanager_secret_version" "dbstring" {
+  secret_id              = "mysqlstring"
+}
+
+locals {
+  db_string               = jsondecode(
+    data.aws_secretsmanager_secret_version.dbstring.secret_string
+  )
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
