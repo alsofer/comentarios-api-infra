@@ -4,5 +4,5 @@ data "aws_security_group" "main" {
 }
 
 data "aws_route_table" "main" {
-    id = "rtb-0d9e6caa49696c163"
+    vpc_id      = aws_vpc.main.id
 }
