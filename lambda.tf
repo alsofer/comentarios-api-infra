@@ -50,8 +50,8 @@ module "db_provisioner" {
 
   db_instance_id                       = "comentarios-api-production-rds01"
   db_instance_security_group_id        = "sg-014ac24e2e3545e4e"
-  db_master_password_ssm_param         = "mysqlsecret"
-  db_master_password_ssm_param_kms_key = "DefaultEncryptionKey"
+  db_master_password_ssm_param         = "/mysql/password"
+  db_master_password_ssm_param_kms_key = "alias/aws/ssm"
 
   db_name = "comentarios-api"
 
