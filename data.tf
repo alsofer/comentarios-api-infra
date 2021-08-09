@@ -3,6 +3,6 @@ data "aws_security_group" "main" {
     name        = "vpc_security_group"
 }
 
-data "aws_route_table" {
+data "aws_route_table" "main" {
     id = "rtb-0d9e6caa49696c163"
 }

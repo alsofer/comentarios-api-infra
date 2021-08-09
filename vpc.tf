@@ -45,3 +45,4 @@ resource "aws_route" "route-table-internet" {
   route_table_id              = data.aws_route_table.id
   destination_cidr_block      = "0.0.0.0/0"
   gateway_id                  = "igw-09572d2a3006b75cb"
+}
