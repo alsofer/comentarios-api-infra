@@ -42,7 +42,7 @@ resource "aws_security_group_rule" "db-all" {
   from_port         = 3306
   to_port           = 3306
   protocol          = "tcp"
-  cidr_block        = "0.0.0.0/0"
+  cidr_blocks        = ["0.0.0.0/0"]
   security_group_id = "sg-014ac24e2e3545e4e"
 }
 
