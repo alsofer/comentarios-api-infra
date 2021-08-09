@@ -13,6 +13,7 @@ module "rds" {
   engine                          = "mysql"
   engine_version                  = "5.7.19"
   storage_encrypted               = false
+  publicly_accessible             = true
 
 
   multi_az                        = "false"
