@@ -1,10 +1,11 @@
 resource "aws_lambda_function" "main" {
   function_name       = "comentarios-api"
   role                = aws_iam_role.iam_for_lambda.arn
-  handler             = "main.handler"
+  handler             = "root.main.handler"
   s3_bucket           = "s3-comentarios-api"
   s3_key              = "api.zip"
   runtime             = "python3.8"
+  timeout             = 8
 
   environment {
     variables = {
