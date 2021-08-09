@@ -22,6 +22,36 @@ resource "aws_security_group" "main" {
   vpc_id      = aws_vpc.main.id
 }
 
+resource "aws_security_group" "lambda-sg" {
+  name        = "lambda-sg"
+  description = "Lambda function SG"
+  vpc_id      = aws_vpc.main.id
+}
+
+resource "aws_security_group_rule" "lambda-out" {
+  type              = "egress"
+  from_port         = 3306
+  to_port           = 3306
+  protocol          = "tcp"
+  source_security_group_id = data.aws_security_group.rds.id
+  security_group_id = aws_security_group.lambda-sg.id
+}
+
+resource "aws_security_group_rule" "db-all" {
+  type              = "ingress"
+  from_port         = 3306
+  to_port           = 3306
+  protocol          = "tcp"
+  cidr_blocks        = ["0.0.0.0/0"]
+  security_group_id = "sg-014ac24e2e3545e4e"
+}
+
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
+}
+
+resource "aws_route" "route-table-internet" {
+  route_table_id              = data.aws_route_table.main.id
+  destination_cidr_block      = "0.0.0.0/0"
+  gateway_id                  = "igw-09572d2a3006b75cb"
 }
