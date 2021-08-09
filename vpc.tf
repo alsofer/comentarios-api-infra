@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "lambda-out" {
   from_port         = 3306
   to_port           = 3306
   protocol          = "tcp"
-  source_security_group_id = aws_security_group.main.id
+  source_security_group_id = data.aws_security_group.rds.id
   security_group_id = aws_security_group.lambda-sg.id
 }
 
