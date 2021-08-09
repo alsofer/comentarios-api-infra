@@ -28,6 +28,15 @@ resource "aws_security_group" "lambda-sg" {
   vpc_id      = aws_vpc.main.id
 }
 
+resource "aws_security_group_rule" "lambda-out" {
+  type              = "egress"
+  from_port         = 3306
+  to_port           = 3306
+  protocol          = "tcp"
+  source_security_group_id = aws_security_group.main.id
+  security_group_id = aws_security_group.lambda-sg.id
+}
+
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 }

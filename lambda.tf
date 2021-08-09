@@ -37,9 +37,9 @@ resource "aws_iam_role_policy_attachment" "iam_role_policy_attachment_lambda_vpc
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }
 
+
 #Lambda para criar tabela no banco de dados
 
-/*
 module "db_provisioner" {
   source  = "aleks-fofanov/rds-lambda-db-provisioner/aws"
   version = "~> 2.0"
@@ -48,17 +48,16 @@ module "db_provisioner" {
   namespace = "prod"
   stage     = "prod"
 
-  db_instance_id                       = ""
-  db_instance_security_group_id        = ""
+  db_instance_id                       = "comentarios-api-production-rds01"
+  db_instance_security_group_id        = "sg-014ac24e2e3545e4e"
   db_master_password_ssm_param         = "mysqlsecret"
   db_master_password_ssm_param_kms_key = "DefaultEncryptionKey"
 
   db_name = "comentarios-api"
 
   vpc_config = {
-    vpc_id             = "vpc-XXXXXXXX"
-    subnet_ids         = ["subnet-XXXXXXXX", "subnet-XXXXXXXX"]
-    security_group_ids = []
+    vpc_id             = "vpc-0c776cafe58b4328b"
+    subnet_ids         = ["subnet-08610eec2f5291688", "subnet-0a128096a921e27ba"]
+    security_group_ids = ["sg-0b8d7fbd67590ac85"]
   }
 }
-*/
