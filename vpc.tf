@@ -46,6 +46,7 @@ resource "aws_security_group_rule" "db-all" {
   security_group_id = "sg-014ac24e2e3545e4e"
 }
 
+/*
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 }
@@ -55,3 +56,4 @@ resource "aws_route" "route-table-internet" {
   destination_cidr_block      = "0.0.0.0/0"
   gateway_id                  = "igw-09572d2a3006b75cb"
 }
+*/
