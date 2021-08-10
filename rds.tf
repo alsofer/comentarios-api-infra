@@ -11,7 +11,7 @@ module "rds" {
   rds_password                    = local.db_creds.password
   rds_username                    = local.db_creds.username
   engine                          = "mysql"
-  engine_version                  = "5.7.19"
+  engine_version                  = "5.7.33"
   storage_encrypted               = false
   multi_az                        = "false"
 }
